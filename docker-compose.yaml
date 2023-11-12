@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:16.0
+    restart: always
+    networks:
+      - postgresql_pgadmin4_net
+    ports:
+      - "127.0.0.1:${PG_PORT}:5432"
+    volumes:
+      - ./vol/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${PG_PASSWORD} # Required
+      - POSTGRES_USER=${PG_USER} # Optional
+      - POSTGRES_DB=${PG_DATABASE} # Optional
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:7.3
+    depends_on:
+      - postgres
+    networks:
+      - postgresql_pgadmin4_net
+    ports:
+      - "127.0.0.1:${PGADMIN_PORT}:80"
+    volumes:
+      - ./vol/pgadmin:/var/lib/pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
+
+networks:
+  postgresql_pgadmin4_net:
