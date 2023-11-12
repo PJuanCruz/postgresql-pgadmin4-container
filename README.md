@@ -1,3 +1,5 @@
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+
 # 📰 Guide
 
 ### 1. Make sure you have Git and Docker installed by running the following commands:
