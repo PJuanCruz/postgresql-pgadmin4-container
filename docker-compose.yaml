@@ -18,7 +18,7 @@ services:
 
   pgadmin:
     container_name: pgadmin
-    image: dpage/pgadmin4:7.3
+    image: dpage/pgadmin4:7.8
     depends_on:
       - postgres
     networks:
@@ -28,8 +28,8 @@ services:
     volumes:
       - ./vol/pgadmin:/var/lib/pgadmin
     environment:
-      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
-      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL} # Required
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD} # Required
 
 networks:
   postgresql_pgadmin4_net:
