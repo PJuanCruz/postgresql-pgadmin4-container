@@ -57,3 +57,9 @@ docker compose up -d
 - Password: [PG_PASSWORD]
 
 <img src="./public/img/img-5.png" alt="Alt text" width="400"/>
+
+### 5. Stop and remove containers and networks:
+
+```bash
+docker compose down
+```
